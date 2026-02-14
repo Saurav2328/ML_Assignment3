@@ -73,8 +73,8 @@ if uploaded_file is not None:
     expected_cols = preprocessor.feature_names_in_
     missing = set(expected_cols) - set(X_test.columns)
     if missing:
-    st.error(f"Missing columns: {missing}")
-    st.stop()
+       st.error(f"Missing columns: {missing}")
+       st.stop()
 
     # Preprocess
     X_test_processed = preprocessor.transform(X_test)
