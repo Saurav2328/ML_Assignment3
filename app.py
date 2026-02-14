@@ -70,6 +70,11 @@ if uploaded_file is not None:
     # Predict + Metrics
     # ----------------------------
     st.subheader("3️⃣ Results & Performance Metrics")
+    expected_cols = preprocessor.feature_names_in_
+    missing = set(expected_cols) - set(X_test.columns)
+    if missing:
+    st.error(f"Missing columns: {missing}")
+    st.stop()
 
     # Preprocess
     X_test_processed = preprocessor.transform(X_test)
