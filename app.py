@@ -84,9 +84,9 @@ if uploaded_file is not None:
 
     # Force numeric columns back to numeric
     for col in X_test.columns:
-    X_test[col] = pd.to_numeric(X_test[col], errors="ignore")
+        X_test[col] = pd.to_numeric(X_test[col], errors="ignore")
 
-    st.write("Final columns used:", list(X_test.columns))
+        st.write("Final columns used:", list(X_test.columns))
 
     # Preprocess
     X_test_processed = preprocessor.transform(X_test)
