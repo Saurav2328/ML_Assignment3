@@ -101,17 +101,19 @@ if uploaded_file is not None:
        st.error(f"Missing columns: {missing}")
        st.stop()
 
+ 
     # Reorder columns exactly
-      X_test = X_test[expected_cols]
+    X_test = X_test[expected_cols]
 
     # Force numeric columns
-     numeric_cols = [
-     "age", "balance", "day", "duration",
-     "campaign", "pdays", "previous"
-     ]
+    numeric_cols = [
+        "age", "balance", "day", "duration",
+        "campaign", "pdays", "previous"
+    ]
 
     for col in numeric_cols:
         X_test[col] = pd.to_numeric(X_test[col], errors="coerce")
+
 
     st.write("Data types after fix:")
     st.write(X_test.dtypes)
