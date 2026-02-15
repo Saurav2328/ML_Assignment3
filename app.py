@@ -95,9 +95,11 @@ if uploaded_file is not None:
     # Preprocess
     X_test_processed = preprocessor.transform(X_test)
 
-    # Naive Bayes requires dense
+
+    # Naive Bayes requires dense array
     if selected_model_name == "Naive Bayes":
-        X_test_processed = X_test_processed.toarray()
+       if hasattr(X_test_processed, "toarray"):
+          X_test_processed = X_test_processed.toarray()
 
     # Predictions
     y_pred = model.predict(X_test_processed)
